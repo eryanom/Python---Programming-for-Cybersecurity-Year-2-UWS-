@@ -1,0 +1,58 @@
+LAB WEEK 1 - Programming for Cybersecurity
+
+#3.1 - Arithmetic with Two Values
+#Erya Anom
+#Request two values from the user
+a = int(input("Enter the first value:"))
+b = int(input("Enter the second value:"))
+
+print("sum:", a + b)
+print("product:", a * b)
+print("Subtraction (first - second):", a - b)
+print("Division (first / second):", a / b)  #true divison
+print("Integer Division:", a // b) #floor division
+print("Modulus:", a % b)
+print("Power:", a ** b)  #a raised to power b
+
+#3.2 - Time Zone Conversion (GMT - PST & CET)
+#Request GMT Time
+hours = int(input("Enter the time in GMT hours (0-23):"))
+minutes = int(input("Enter the minutes (0-59):"))
+
+#Convert to PST and CET
+pst_hours = (hours - 8) % 24
+cet_hours = (hours + 1) % 24
+
+print(f"GMT Time: {hours:02d}:{minutes:02d}")
+print(f"PST Time: {pst_hours:02d}:{minutes:02d}")
+print(f"CET Time: {cet_hours:02d}:{minutes:02d}")
+
+#3.3 - Temperature Conversion
+#Celsius to Fahrenheit
+
+celsius = float(input("Enter temperature in C:"))
+fagrenheit = (celsius * 9/5) + 32
+print(f"{celsius} C = {fahrenheit:.2f} F")
+
+#Fahrenheit to Celsius
+fahrenheit = float(input("Enter temperature in F:"))
+celsius = (fahrenheit - 32) * 5/9
+print(f"{fahrenheit} F = {celsius:.2f} C")
+
+#3.4 - Eggs (Gross, Dozen, Singles)
+eggs = int(input("Enter the number of eggs:"))
+
+gross = eggs // 144
+dozen = (eggs % 144) // 12
+single = eggs % 12
+print(f"{eggs} eggs is {gross} gross eggs + {dozen} dozen eggs + {single} eggs")
+
+#Sample Runs
+Input: 160
+Output: 160 eggs is 1 gross eggs + 1 dozen eggs + 4 eggs
+
+Input: 51
+Output: 51 eggs is 0 gross eggs + 4 dozen eggs + 3 eggs
+
+Input: 11
+Output: 11 eggs is 0 gross eggs + 0 dozen eggs + 11 eggs
