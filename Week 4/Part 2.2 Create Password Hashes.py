@@ -2,7 +2,10 @@ from hashlib import sha256
 
 def hash_password(password: str) -> str:
     """Return a hex SHA-256 hash of the given password."""
-    return sha256(password.encode('utf-8')).hexdigest()
+    hashed = sha256(password.encode('utf-8')).hexdigest()
+    print(f"Hashing password: '{password}' -> {hashed}")
+    return hashed
+
 
 def collect_users_and_hashes():
     """
@@ -12,20 +15,27 @@ def collect_users_and_hashes():
     """
     usernames = []
     password_hashes = []
-    print("Enter user accounts. Leave username blank to finish.")
+    print("Enter user accounts. Leave username blank to finish.\n")
 
     while True:
         username = input("Username: ").strip()
         if username == "":
+            print("\nInput finished.\n")
             break
-        password = input("Password: ")  # langsung menggunakan input() tanpa getpass
+
+        password = input("Password: ")
+        hashed_pw = hash_password(password)  # call function and show hash
+
         usernames.append(username)
-        password_hashes.append(hash_password(password))
+        password_hashes.append(hashed_pw)
+
         print(f"Saved user '{username}' with hashed password.")
+        print("-" * 60)
 
     return usernames, password_hashes
 
-# --- Example usage ---
+
+# usage
 if __name__ == "__main__":
     users, hashes = collect_users_and_hashes()
     print("\n--- Stored Accounts ---")
