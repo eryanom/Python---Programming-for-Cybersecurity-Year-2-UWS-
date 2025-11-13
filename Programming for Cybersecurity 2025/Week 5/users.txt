@@ -1,0 +1,5 @@
+alice, password123
+bob, qwerty
+charlie, S3cur3!Pass
+adams, Halloween2026!
+Eve, Argentina_fant4stic
